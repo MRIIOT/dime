@@ -1,2 +1,0 @@
-# dime
-DIME DataOps Architecture

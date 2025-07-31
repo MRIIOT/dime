@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIME DataOps</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Scroll container -->
+    <div id="scroll-container">
+        <!-- Section 1: Factory Floor -->
+        <section class="narrative-section" id="section-factory">
+            <div class="narrative-content">
+                <h1 class="fade-in">Your Factory Floor</h1>
+                <p class="fade-in delay-1">These machines live on your factory floor.</p>
+                <p class="fade-in delay-2">They have been islands for a long time.</p>
+                <div class="scroll-prompt fade-in delay-3">
+                    <span>Scroll to connect them</span>
+                    <svg class="scroll-arrow" width="30" height="30" viewBox="0 0 30 30">
+                        <path d="M15 20 L10 15 L12 13 L15 16 L18 13 L20 15 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: DIME Services -->
+        <section class="narrative-section" id="section-agent">
+            <div class="narrative-content">
+                <h2 class="fade-in">Establishing Connectivity</h2>
+                <p class="fade-in delay-1">After connectivity has been established,</p>
+                <p class="fade-in delay-2">all machine data is sent to the agent for processing</p>
+                <p class="fade-in delay-3">and structuring into information.</p>
+                <div class="scroll-prompt fade-in delay-4">
+                    <span>Scroll to publish information to IT systems</span>
+                    <svg class="scroll-arrow" width="30" height="30" viewBox="0 0 30 30">
+                        <path d="M15 20 L10 15 L12 13 L15 16 L18 13 L20 15 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: MQTT Broker -->
+        <section class="narrative-section" id="section-mqtt">
+            <div class="narrative-content">
+                <h2 class="fade-in">Information Distribution</h2>
+                <p class="fade-in delay-1">The structured information flows to the message broker,</p>
+                <p class="fade-in delay-2">ready to be distributed across your applications.</p>
+                <div class="scroll-prompt fade-in delay-3">
+                    <span>Scroll to distribute information</span>
+                    <svg class="scroll-arrow" width="30" height="30" viewBox="0 0 30 30">
+                        <path d="M15 20 L10 15 L12 13 L15 16 L18 13 L20 15 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Storage -->
+        <section class="narrative-section" id="section-storage">
+            <div class="narrative-content">
+                <h2 class="fade-in">Data Persistence</h2>
+                <p class="fade-in delay-1">First stop is the storage of machine information</p>
+                <p class="fade-in delay-2">into a database.</p>
+                <div class="scroll-prompt fade-in delay-3">
+                    <span>Scroll to analyze data</span>
+                    <svg class="scroll-arrow" width="30" height="30" viewBox="0 0 30 30">
+                        <path d="M15 20 L10 15 L12 13 L15 16 L18 13 L20 15 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Anomaly Detection -->
+        <section class="narrative-section" id="section-anomaly">
+            <div class="narrative-content">
+                <h2 class="fade-in">Anomaly Detection</h2>
+                <p class="fade-in delay-1">Second stop is timeseries analysis</p>
+                <p class="fade-in delay-2">and anomaly detection.</p>
+                <div class="scroll-prompt fade-in delay-3">
+                    <span>Scroll to visualize insights</span>
+                    <svg class="scroll-arrow" width="30" height="30" viewBox="0 0 30 30">
+                        <path d="M15 20 L10 15 L12 13 L15 16 L18 13 L20 15 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: User Interface -->
+        <section class="narrative-section" id="section-ui">
+            <div class="narrative-content">
+                <h2 class="fade-in">Data Visualization</h2>
+                <p class="fade-in delay-1">Finally, the streaming information and anomaly likelihood</p>
+                <p class="fade-in delay-2">are presented to the user for analysis.</p>
+                <div class="cta-container fade-in delay-3">
+                    <a href="https://mriiot.com" target="_blank" class="cta-button">
+                        Learn More at mriiot.com
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Three.js canvas -->
+    <canvas id="three-canvas"></canvas>
+    
+    <!-- Animation loading indicator -->
+    <div class="animation-loading">
+        <div class="spinner"></div>
+    </div>
+    
+
+    <!-- Component labels (will be positioned dynamically) -->
+    <div class="component-labels">
+        <div class="component-label" id="label-mazak" style="display: none;">
+            <h3>Mazak</h3>
+            <p>Machine Simulator</p>
+        </div>
+        <div class="component-label" id="label-okuma" style="display: none;">
+            <h3>Okuma</h3>
+            <p>Machine Simulator</p>
+        </div>
+        <div class="component-label" id="label-your-machine" style="display: none;">
+            <h3>Your Machine Here</h3>
+            <p>Ready to Connect</p>
+        </div>
+        <div class="component-label" id="label-agent" style="display: none;">
+            <h3>DIME Services</h3>
+            <p>Data Processing Hub</p>
+        </div>
+        <div class="component-label" id="label-mqtt" style="display: none;">
+            <h3>MQTT Broker</h3>
+            <p>Message Distribution</p>
+        </div>
+        <div class="component-label" id="label-mtc2redis" style="display: none;">
+            <h3>MTC2Redis</h3>
+            <p>Data Persistence Service</p>
+        </div>
+        <div class="component-label" id="label-redis" style="display: none;">
+            <h3>Redis DB</h3>
+            <p>In-Memory Database</p>
+        </div>
+        <div class="component-label" id="label-mtc2anomaly" style="display: none;">
+            <h3>MTC2Anomaly</h3>
+            <p>Anomaly Detection Service</p>
+        </div>
+        <div class="component-label" id="label-mtc2htm" style="display: none;">
+            <h3>MTC2HTM</h3>
+            <p>Hierarchical Temporal Memory</p>
+        </div>
+        <div class="component-label" id="label-mtc2ui" style="display: none;">
+            <h3>MTC2UI</h3>
+            <p>User Interface</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
