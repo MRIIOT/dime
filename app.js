@@ -1367,7 +1367,7 @@ function initScrollAnimations() {
     
     createSectionTrigger({
         trigger: "#section-ui .narrative-content",
-        start: "top top+=50",
+        start: "top 30%",
         end: "bottom top",
         onEnter: () => {
             // Show loading indicator
